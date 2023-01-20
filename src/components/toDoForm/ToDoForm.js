@@ -1,21 +1,22 @@
-import { Component } from 'react'
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class ToDoForm extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       input: '',
-    }
+    };
   }
 
   onValueChange = (e) => {
-    this.setState({ input: e.target.value })
-  }
+    this.setState({ input: e.target.value });
+  };
   onSubmitTask = (e) => {
-    e.preventDefault()
-    this.props.onAddTask(this.state.input)
-    this.setState({ input: '' })
-  }
+    e.preventDefault();
+    this.props.onAddTask(this.state.input);
+    this.setState({ input: '' });
+  };
 
   render() {
     return (
@@ -46,8 +47,13 @@ class ToDoForm extends Component {
           </div>
         </div>
       </form>
-    )
+    );
   }
 }
 
-export default ToDoForm
+ToDoForm.propTypes = {
+  onClearAll: PropTypes.func,
+  onAddTask: PropTypes.func,
+};
+
+export default ToDoForm;

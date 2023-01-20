@@ -1,4 +1,9 @@
-const Date = ({ currentMonth, currentDay }) => {
+const Date = () => {
+  const currentMonth = new window.Date().toLocaleString('eng', {
+    month: 'short',
+  });
+  const currentDay = new window.Date().getDate().toLocaleString();
+
   return (
     <div className="todo__date">
       <div className="todo__date-cont">
@@ -7,7 +12,7 @@ const Date = ({ currentMonth, currentDay }) => {
       </div>
       <div className="todo__title">Today</div>
     </div>
-  )
-}
+  );
+};
 
-export default Date
+export default Date;
